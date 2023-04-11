@@ -1,0 +1,7 @@
+#from ../dockerfile
+FROM lecurry/bcc:base
+RUN apt-get install -y python3-pip && pip3 install prometheus_client flask_basicauth flask && ln -s /usr/bin/python3 /usr/bin/python
+RUN pip3 install redis
+ADD . /app/wo-bcc
+WORKDIR /app/wo-bcc
+CMD python main.py

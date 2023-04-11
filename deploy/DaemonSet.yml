@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: wo-bcc
+  labels:
+    app: wo-bcc
+spec:
+  template:
+    metadata:
+      name: wo-bcc
+      labels:
+        app: wo-bcc
+    spec:
+      containers:
+        - name: wo-bcc
+          image: lecurry/bcc:prod
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+          ports:
+            - containerPort: 9100
+              hostPort: 9108
+              protocol: TCP
+          volumeMounts:
+            - name: host-path-modules
+              mountPath: /lib/modules
+            - name: host-path-src
+              mountPath: /usr/src
+            - name: host-path-boot
+              mountPath: /boot
+            - name: host-path-debug
+              mountPath: /sys/kernel/debug
+      volumes:
+        - name: host-path-modules
+          hostPath:
+            path: /lib/modules
+        - name: host-path-src
+          hostPath:
+            path: /usr/src
+        - name: host-path-boot
+          hostPath:
+            path: /boot
+        - name: host-path-debug
+          hostPath:
+            path: /sys/kernel/debug
+      nodeSelector:
+        kubernetes.io/arch: amd64
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: wo-bcc

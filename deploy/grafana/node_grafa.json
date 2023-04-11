@@ -1,0 +1,104 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "hamedkarbasi93-nodegraphapi-datasource",
+        "uid": "QAiCOlLVk"
+      },
+      "gridPos": {
+        "h": 18,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "targets": [
+        {
+          "datasource": {
+            "type": "hamedkarbasi93-nodegraphapi-datasource",
+            "uid": "QAiCOlLVk"
+          },
+          "queryText": "token=$token&service=$service",
+          "refId": "A"
+        }
+      ],
+      "title": "Panel Title",
+      "type": "nodeGraph"
+    }
+  ],
+  "refresh": "",
+  "revision": 1,
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "KxnXdiwvV8YmSOCf",
+          "value": "KxnXdiwvV8YmSOCf"
+        },
+        "hide": 0,
+        "name": "token",
+        "options": [
+          {
+            "selected": true,
+            "text": "KxnXdiwvV8YmSOCf",
+            "value": "KxnXdiwvV8YmSOCf"
+          }
+        ],
+        "query": "KxnXdiwvV8YmSOCf",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {},
+        "hide": 0,
+        "name": "service",
+        "options": [],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "New dashboard",
+  "uid": "m3RpKlL4k",
+  "version": 2,
+  "weekStart": ""
+}

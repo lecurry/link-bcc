@@ -1,0 +1,25 @@
+version: '3'
+services:
+  link-bcc:
+    #from ./dockerfile
+    image: lecurry/bcc:prod
+    restart: always
+    ports:
+      - 9108:9100
+    privileged: true
+    depends_on:
+      - "wo-redis"
+    environment:
+      RedisHost: "wo-redis"
+      RedisPort: "6379"
+      RedisPwd: "hiUN0.8veowho9Eev"
+    volumes:
+      - /lib/modules:/lib/modules:ro
+      - /usr/src:/usr/src:ro
+      - /boot:/boot:ro
+      - /sys/kernel/debug:/sys/kernel/debug:ro
+  wo-redis:
+    image: lecurry/redis
+    command: "redis-server --appendonly yes --requirepass hiUN0.8veowho9Eev"
+#install centos kernel devel tools
+#curl -o kernel-ml-devel-$(uname -r).rpm https://fr1.teddyvps.com/kernel/el7/kernel-ml-devel-$(uname -r).rpm && yum -y install kernel-ml-devel-$(uname -r).rpm
