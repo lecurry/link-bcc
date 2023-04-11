@@ -1,0 +1,8 @@
+version: '3'
+services:
+  grafana:
+    image: grafana/grafana:9.4.0
+    ports:
+      - 3000:3000
+    volumes:
+      - ./hamedkarbasi93-nodegraphapi-datasource:/var/lib/grafana/plugins/hamedkarbasi93-nodegraphapi-datasource

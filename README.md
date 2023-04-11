@@ -18,9 +18,9 @@
 ## 部署grafana进行展示
 
 1. cd deploy/grafana && docker-compose up -d
-2. 打开grafana 
+2. 打开grafana http://127.0.0.1:3000
 3. 默认账号密码: admin admin
-4. 添加 data sources 填入：http://xx.xx.xx.xx:9108,部署link-bcc地址。
+4. 添加 data sources,数据类型选择 node graph api 填入：http://xx.xx.xx.xx:9108,部署link-bcc地址。
 5. 导入仪表盘 ./deploy/grafana/node_grafa.json
 6. 查看访问token,并填入面的token里面即可
 ```
